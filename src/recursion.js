@@ -32,28 +32,40 @@ var arraySum = function(array) {
         return 0;
     }
     var arrayItem = array[0];
-    if (arrayItem < 0) {
-        return 0;
-    }
     if (typeof arrayItem === 'number') {
-        return arrayItem + arraySum(array.slice(1,array.lenght));
+        return arrayItem + arraySum(array.slice(1,array.length));
     }
-    return sum(arrayItem);
+    return arraySum(arrayItem) + arraySum(array.slice(1,array.length));
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+    if (n === 0) {
+        return true;
+    }
+    if (n === 1) {
+        return false;
+    }
+    return isEven((n < 0 ? -1 * n : n) - 2);
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+    if (n === 0 || n === 1 || n === -1) {
+        return 0;
+    }
+    if (n < 0) {
+        return n + 1 + sumBelow(n + 1);
+    }
+    return n - 1 + sumBelow(n - 1);
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+    
 };
 
 // 7. Compute the exponent of a number.
