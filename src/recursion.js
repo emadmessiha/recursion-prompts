@@ -82,12 +82,7 @@ var range = function(x, y) {
 	  return [];
     }
   }
-  let nextRange = range(next, y);
-  if (nextRange) {
-	return [nextInt].concat(nextRange);
-  } else {
-	return [nextInt];
-  }
+  return [nextInt].concat(range(next, y));
 };
 
 // 7. Compute the exponent of a number.
